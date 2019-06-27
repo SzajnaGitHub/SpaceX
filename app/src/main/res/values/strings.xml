@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SpaceXApp</string>
+    <string name="spacex_launch_pads">SpaceX Launch Pads</string>
+    <string name="spacex">SpaceX</string>
+    <string name="attempted_launches">Attempted Launches:</string>
+    <string name="successful_launches">Successful Launches:</string>
+    <string name="region">Region:</string>
+    <string name="location">Location:</string>
+    <string name="status">Status:</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="details">Details</string>
+
+</resources>
