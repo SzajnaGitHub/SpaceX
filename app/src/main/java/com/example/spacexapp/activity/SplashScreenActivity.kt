@@ -32,11 +32,8 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         //Check internet connection
-        if (checkInternetConnectivity()) {
-            onStartAnimation()
-        } else {
+        onStartAnimation()
 
-        }
 
         //Initialize the Handler
         mDelayHandler = Handler()
@@ -68,11 +65,6 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    private fun checkInternetConnectivity(): Boolean {
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork = cm.activeNetworkInfo
-        return activeNetwork != null
-    }
 
     private fun getScreenHeight(): Float {
         //Get screen height
