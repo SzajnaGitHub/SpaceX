@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.spacexapp.CheckInternetConnectivityClass
 import com.example.spacexapp.lauchPad.LaunchPad
 import com.example.spacexapp.lauchPad.LaunchPadAdapter
 import com.example.spacexapp.lauchPad.LaunchPadApi
@@ -21,12 +22,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val checkInternet = CheckInternetConnectivityClass()
 
-        if (checkInternetConnectivity()) {
+        if (checkInternet.check(this)) {
             LaunchPadApi().getLaunchPads().enqueue(object : Callback<List<LaunchPad>> {
 
                 override fun onFailure(call: Call<List<LaunchPad>>, t: Throwable) {
-                    println("something bad happened")
+                    spacexMainTextVIew.text = "No internet connection!"
                 }
 
                 override fun onResponse(call: Call<List<LaunchPad>>, response: Response<List<LaunchPad>>) {
@@ -54,23 +56,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun partItemClicked(launchpad: LaunchPad) {
         val intent = Intent(this, SingleLaunchPadActivity::class.java)
-        intent.putExtra("lstatus", launchpad.status)
-        intent.putExtra("lname", launchpad.location.name)
-        intent.putExtra("ldetails", launchpad.details)
-        intent.putExtra("lregion", launchpad.location.region)
-        intent.putExtra("llongitude", launchpad.location.longitude)
-        intent.putExtra("llatitude", launchpad.location.latitude)
-        intent.putExtra("lwikipedia", launchpad.wikipedia)
-        intent.putExtra("lattemptedLaunches", launchpad.attemptedLaunches.toString())
-        intent.putExtra("lsuccessfulLaunches", launchpad.successfulLaunches.toString())
+            intent.putExtra("lstatus", launchpad.status)
+            intent.putExtra("lname", launchpad.location.name)
+            intent.putExtra("ldetails", launchpad.details)
+            intent.putExtra("lregion", launchpad.location.region)
+            intent.putExtra("llongitude", launchpad.location.longitude)
+            intent.putExtra("llatitude", launchpad.location.latitude)
+            intent.putExtra("lwikipedia", launchpad.wikipedia)
+            intent.putExtra("lattemptedLaunches", launchpad.attemptedLaunches.toString())
+            intent.putExtra("lsuccessfulLaunches", launchpad.successfulLaunches.toString())
         startActivity(intent)
 
-    }
-
-    private fun checkInternetConnectivity(): Boolean {
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork = cm.activeNetworkInfo
-        return activeNetwork != null
     }
 
 
