@@ -235,7 +235,6 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/btn_go_to_map"
         android:text="see on map"
         app:backgroundTint="@color/colorSpaceBlue"
         app:layout_constraintBottom_toBottomOf="parent"
