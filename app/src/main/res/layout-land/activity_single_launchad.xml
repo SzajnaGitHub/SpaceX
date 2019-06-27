@@ -41,6 +41,46 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/details"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/details" />
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
     <ScrollView
         android:id="@+id/singleScrollView"
         android:layout_width="373dp"
@@ -49,26 +89,12 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText">
+        app:layout_constraintTop_toBottomOf="@+id/divider">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/details"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:text="textView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/longitudeText"
@@ -101,13 +127,12 @@
                 android:layout_height="32dp"
                 android:layout_marginStart="44dp"
                 android:layout_marginLeft="44dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:text="textView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/divider" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView"
@@ -115,10 +140,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginLeft="32dp"
-                android:layout_marginTop="24dp"
                 android:text="@string/status"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -206,29 +230,6 @@
                 app:layout_constraintStart_toEndOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/attemptedLaunches" />
 
-            <View
-                android:id="@+id/divider"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/details"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/details" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -261,4 +262,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
