@@ -1,8 +1,6 @@
 package com.example.spacexapp.activity
 
-import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,7 +39,8 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         } else {
-            spacexMainTextVIew.text = "No internet connection!"
+           // spacexMainTextVIew.text = "No internet connection!"
+            setContentView(R.layout.activity_no_internet_connection)
         }
 
     }

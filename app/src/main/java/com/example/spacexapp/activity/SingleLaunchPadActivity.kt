@@ -44,8 +44,9 @@ class SingleLaunchPadActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-
-            ImageDownloadTask(imageView, singleLaunchPadProgressBar).execute(imageUrl)
+            ImageDownloadTask(imageView, noInternetProgressBar).execute(imageUrl)
+        } else {
+            setContentView(R.layout.activity_no_internet_connection)
         }
 
     }
