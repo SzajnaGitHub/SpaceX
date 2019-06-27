@@ -31,9 +31,7 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        //Check internet connection
         onStartAnimation()
-
 
         //Initialize the Handler
         mDelayHandler = Handler()

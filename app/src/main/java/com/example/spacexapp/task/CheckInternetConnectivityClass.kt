@@ -1,4 +1,4 @@
-package com.example.spacexapp
+package com.example.spacexapp.task
 
 import android.content.Context
 import android.net.ConnectivityManager

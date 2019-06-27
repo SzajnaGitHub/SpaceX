@@ -3,7 +3,7 @@ package com.example.spacexapp.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.spacexapp.CheckInternetConnectivityClass
+import com.example.spacexapp.task.CheckInternetConnectivityClass
 import com.example.spacexapp.task.ImageDownloadTask
 import com.example.spacexapp.R
 import kotlinx.android.synthetic.main.activity_single_launchad.*

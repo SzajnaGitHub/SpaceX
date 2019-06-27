@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.spacexapp.CheckInternetConnectivityClass
+import com.example.spacexapp.task.CheckInternetConnectivityClass
 import com.example.spacexapp.lauchPad.LaunchPad
 import com.example.spacexapp.lauchPad.LaunchPadAdapter
 import com.example.spacexapp.lauchPad.LaunchPadApi
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             LaunchPadApi().getLaunchPads().enqueue(object : Callback<List<LaunchPad>> {
 
                 override fun onFailure(call: Call<List<LaunchPad>>, t: Throwable) {
-                    spacexMainTextVIew.text = "No internet connection!"
+                    setContentView(R.layout.activity_no_internet_connection)
                 }
 
                 override fun onResponse(call: Call<List<LaunchPad>>, response: Response<List<LaunchPad>>) {
@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         } else {
-           // spacexMainTextVIew.text = "No internet connection!"
             setContentView(R.layout.activity_no_internet_connection)
         }
 
