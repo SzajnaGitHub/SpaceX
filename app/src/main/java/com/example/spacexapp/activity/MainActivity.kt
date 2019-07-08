@@ -53,18 +53,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun partItemClicked(launchpad: LaunchPad) {
-        val intent = Intent(this, SingleLaunchPadActivity::class.java)
-            intent.putExtra("lstatus", launchpad.status)
-            intent.putExtra("lname", launchpad.location.name)
-            intent.putExtra("ldetails", launchpad.details)
-            intent.putExtra("lregion", launchpad.location.region)
-            intent.putExtra("llongitude", launchpad.location.longitude)
-            intent.putExtra("llatitude", launchpad.location.latitude)
-            intent.putExtra("lwikipedia", launchpad.wikipedia)
-            intent.putExtra("lattemptedLaunches", launchpad.attemptedLaunches.toString())
-            intent.putExtra("lsuccessfulLaunches", launchpad.successfulLaunches.toString())
-        startActivity(intent)
-
+        Intent(this, SingleLaunchPadActivity::class.java).apply {
+            putExtra("lstatus", launchpad.status)
+            putExtra("lname", launchpad.location.name)
+            putExtra("ldetails", launchpad.details)
+            putExtra("lregion", launchpad.location.region)
+            putExtra("llongitude", launchpad.location.longitude)
+            putExtra("llatitude", launchpad.location.latitude)
+            putExtra("lwikipedia", launchpad.wikipedia)
+            putExtra("lattemptedLaunches", launchpad.attemptedLaunches.toString())
+            putExtra("lsuccessfulLaunches", launchpad.successfulLaunches.toString())
+        }.let {
+            startActivity(intent)
+        }
     }
 
 

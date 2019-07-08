@@ -16,8 +16,11 @@ import com.example.spacexapp.R
 class SplashScreenActivity : AppCompatActivity() {
 
 
-    private var mDelayHandler: Handler? = null
-    private val SPLASH_DELAY: Long = 3000
+    private val mDelayHandler by lazy {Handler()}
+
+    companion object{
+        private const val SPLASH_DELAY: Long = 3000
+    }
 
     private val mRunnable: Runnable = Runnable {
         if (!isFinishing) {
@@ -33,11 +36,8 @@ class SplashScreenActivity : AppCompatActivity() {
 
         onStartAnimation()
 
-        //Initialize the Handler
-        mDelayHandler = Handler()
-
         //Navigate with delay
-        mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
+        mDelayHandler.postDelayed(mRunnable, SPLASH_DELAY)
 
     }
 
@@ -57,9 +57,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
 
     public override fun onDestroy() {
-        if (mDelayHandler != null) {
-            mDelayHandler!!.removeCallbacks(mRunnable)
-        }
+        mDelayHandler.removeCallbacks(mRunnable)
         super.onDestroy()
     }
 
@@ -70,4 +68,6 @@ class SplashScreenActivity : AppCompatActivity() {
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         return displayMetrics.heightPixels.toFloat()
     }
+
+
 }

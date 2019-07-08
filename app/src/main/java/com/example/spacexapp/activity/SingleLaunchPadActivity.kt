@@ -37,11 +37,13 @@ class SingleLaunchPadActivity : AppCompatActivity() {
 
 
             goToMapButton?.setOnClickListener {
-                val intent = Intent(this, MapsActivity::class.java)
-                intent.putExtra("singleLatitude", latitude)
-                intent.putExtra("singleLongitude", longitude)
-                intent.putExtra("singleName", name)
-                startActivity(intent)
+                Intent(this, MapsActivity::class.java).apply {
+                    putExtra("singleLatitude", latitude)
+                    putExtra("singleLongitude", longitude)
+                    putExtra("singleName", name)
+                }.let {
+                    startActivity(intent)
+                }
             }
 
             ImageDownloadTask(imageView, noInternetProgressBar).execute(imageUrl)
